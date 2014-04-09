@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title><%= title %></title>
+	<link rel="stylesheet" href="/lib/foundation/css/normalize.css">
+	<link rel="stylesheet" href="/lib/foundation/css/foundation.css">
+	<link rel="stylesheet" href="/lib/chosen/public/chosen.min.css">
+	<link rel="stylesheet" href="/static/css/app.css">
+	<script src="/lib/foundation/js/vendor/custom.modernizr.js"></script>
+</head>
+<body>
+	<div class="fixed">
+		<nav class="top-bar" data-topbar>
+			<ul class="title-area">
+				<li class="name">
+					 <h1><a href="#">SCHEMATR0N</a></h1>
+				</li>
+			</ul>
+			<section class="top-bar-section">
+				<ul class="left">
+					<li class="has-form">
+						<select id="schema-selector" name="schema-selector" data-placeholder="Select a schema…">
+								<option></option>
+							<% for (var value in types) { %>
+								<option<% if (value === type) { %> selected<% } %>><%= value %></option> <% } %>
+						</select>
+					</li>
+				</ul>
+			</section>
+		</nav>
+	</div>
+	<section role="main">
+		<div class="row">
+			<div class="medium-5 large-4 columns sidebar hide-for-small">
+				<p>No <%= type %>s.</p>
+			</div>
+			<div class="medium-7 large-8 columns">
+				<% if (type) { %>
+				<%- include schema-form %>
+				<% } else { %>
+					<h1>Blargh</h1>
+				<% } %>
+			</div>
+		</div>
+	</section>
+	<script src="/lib/foundation/js/vendor/jquery.js"></script>
+	<script src="/lib/foundation/js/vendor/fastclick.js"></script>
+	<script src="/lib/foundation/js/foundation.min.js"></script>
+	<script src="/lib/chosen/public/chosen.jquery.min.js"></script>
+	<script src="/static/js/schema.js"></script>
+	<script>
+		$(document).foundation();
+		$('#schema-selector').chosen().change(function () {
+			var type = this.options[this.selectedIndex].value;
+			console.log('Selected: ' + type);
+			location.assign('/schema/' + type);
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<% if (type) { %>
+<h1>Create <%= type %></h1>
+<form class="schema-form <%= type %>-schema" action="" id="<%= type %>-schema" name="<%= type %>-schema">
+<%
+	var typeSchemas = schema.ancestors.concat(type);
+	for (var i = 0, l = typeSchemas.length; i < l; i++) {
+		var typeSchema = types[typeSchemas[i]];
+%>
+	<fieldset>
+		<legend>Properties from <a href="/schema/<%= typeSchema.id %>"><%= typeSchema.label %></a></legend>
+	<%
+		for (var x in typeSchema.specific_properties) {
+			var property = properties[typeSchema.specific_properties[x]];
+			var range = property.ranges[0];
+	%>
+		<div class="row">
+			<div class="small-3 columns">
+				<label for="<%= property.label %>" class="right inline"><%= property.label %></label>
+			</div>
+			<div class="small-9 columns">
+			<% if (range === 'Text') { %>
+				<input type="text" id="<%= property.label %>">
+			<% } else if (range === 'URL') { %>
+				<input type="text" id="<%= property.label %>" placeholder="http://">
+			<% } else if (range === 'Date' || range === 'DateTime') { %>
+				<input type="text" id="<%= property.label %>" placeholder="<%= new Date() %>">
+			<% } else if (range === 'Boolean') { %>
+				<input type="checkbox" id="<%= property.label %>">
+			<% } else if (range === 'Number') { %>
+				<input type="number" id="<%= property.label %>">
+			<% } else { %>
+			<label class="inline"><a href="/schema/<%= range %>"><%= range %></a> not yet supported.</label>
+			<% } %>
+				<!--<p class="small"><%= property.comment %></p>-->
+			</div>
+		</div>
+	<% } %>
+	</fieldset>
+<% } %>
+</form>
+<% } %>

@@ -1,0 +1,36 @@
+{
+  "name": "node-schematron",
+  "version": "0.1.0",
+  "author": "Dave Artz <dave@artzstudio.com>",
+  "description": "All of the data!",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/artzstudio/node-schematron.git"
+  },
+  "keywords": [
+    "schema.org",
+    "schema",
+    "cms"
+  ],
+  "dependencies": {
+    "colors": "*",
+    "express": "*",
+    "ejs": "*",
+    "xml2js": "*",
+    "request": "*",
+    "feedparser": "~0.16.5",
+    "riak-js": "~0.10.2",
+    "riak-pb": "~0.1.8"
+  },
+  "analyze": false,
+  "devDependencies": {
+    "grunt": "*"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.10"
+  }
+}

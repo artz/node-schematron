@@ -1,0 +1,78 @@
+
+/*
+ * Chosen Plugin Overrides
+ */
+#schema-selector {
+	background-color: #333;
+	color: #333;
+	height: 24px;
+	padding: 0;
+	margin: 10px 0;
+	border: 0;
+}
+.chosen-container {
+	margin-top: 10px;
+	background-color: #333 !important;
+}
+div.chosen-container > a.chosen-single {
+	color: #fff;
+	box-shadow: none;
+	height: 24px;
+	line-height: 24px;
+	padding: 0 0 0 8px;
+}
+div.chosen-container > a.chosen-default {
+	color: #aaa;
+}
+div.chosen-container > a.chosen-single:hover {
+	background-color: inherit;
+}
+.chosen-container-active.chosen-with-drop .chosen-single {
+	background: none;
+	box-shadow: none;
+}
+.chosen-drop > .chosen-search {
+	display: block;
+}
+.chosen-drop > .chosen-search > input {
+	top: inherit;
+}
+.chosen-drop > .chosen-results {
+	display: block;
+	font-size: inherit;
+	color: #fff;
+}
+.chosen-drop > .chosen-results > .active-result {
+	color: #fff;
+	float: none;
+}
+.chosen-container .chosen-drop {
+	background-color: #333;
+}
+
+/*
+ * Schematron Styles
+ */
+.row {
+	max-width: 80rem;
+}
+.sidebar {
+	background-color: #fafafa;
+}
+
+/*
+ * Schema - Form Styles
+ */
+.schema-form label.inline {
+	margin: 0;
+}
+.schema-form input[type=text],
+.schema-form input[type=number] {
+	height: 2rem;
+}
+.schema-form input[type=number] {
+	width: 10rem;
+}
+.schema-form input[type=checkbox] {
+	margin-top: .625rem;
+}
